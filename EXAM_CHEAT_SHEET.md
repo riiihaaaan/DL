@@ -10,6 +10,13 @@ Every neural network in TensorFlow / Keras follows this exact flow:
 2. **Define Architecture:** `model = tf.keras.Sequential([ ... ])`.
 3. **Compile Model:** `model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])`.
 4. **Fit & Evaluate:** `model.fit(X_train, y_train, epochs=..., batch_size=...)` then `model.evaluate(X_test, y_test)`.
+5. **Plot Performance Curves:**
+   ```python
+   plt.figure(figsize=(10, 4))
+   plt.subplot(1, 2, 1); plt.plot(history.history['accuracy'], label='Train'); plt.plot(history.history['val_accuracy'], label='Val'); plt.title('Accuracy'); plt.legend()
+   plt.subplot(1, 2, 2); plt.plot(history.history['loss'], label='Train'); plt.plot(history.history['val_loss'], label='Val'); plt.title('Loss'); plt.legend()
+   plt.tight_layout(); plt.show()
+   ```
 
 ---
 
